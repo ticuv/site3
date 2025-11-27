@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ticuv — Designing Digital Legacies. High-end digital design studio.">
-    <title>Ticuv — Design Studio</title>
+    <meta name="description" content="Ticu Vlad (ticuv) — Multidisciplinary designer specializing in 3D art, generative design, poster graphics, and brand identities. Based in Iași, Romania.">
+    <meta name="keywords" content="3D design, generative art, poster design, brand identity, graphic design, ticuv, Ticu Vlad, Romania designer">
+    <meta name="author" content="Ticu Vlad">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ticuv — Creating Impactful Visuals">
+    <meta property="og:description" content="Multidisciplinary designer specializing in 3D art, generative design, and brand identities. Let's create something together.">
+    <meta property="og:url" content="https://ticuv.studio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ticuv — Creating Impactful Visuals">
+    <meta name="twitter:description" content="Multidisciplinary designer specializing in 3D art, generative design, and brand identities.">
+
+    <title>Ticuv — 3D Art & Generative Design Portfolio</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -654,6 +668,211 @@
             color: var(--text-primary);
         }
 
+        /* Profile Photo */
+        .about__profile {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--border);
+            margin-bottom: var(--space-md);
+            background: var(--bg-secondary);
+        }
+
+        .about__profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.6s var(--ease-out);
+        }
+
+        .about__profile:hover .about__profile-image {
+            filter: grayscale(0%);
+        }
+
+        .about__profile-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: var(--text-tertiary);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg) 100%);
+        }
+
+        /* Project Meta (Year & Featured Badge) */
+        .work__item-meta {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            display: flex;
+            gap: var(--space-xs);
+            z-index: 2;
+        }
+
+        .work__item-year {
+            padding: 0.5rem 1rem;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .work__item-featured {
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: #fff;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: var(--space-2xl) 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        .skills__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .skills__category {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .skills__title {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .skills__list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .skill {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .skill__name {
+            font-size: 1rem;
+            color: var(--text-primary);
+            min-width: 120px;
+        }
+
+        .skill__bar {
+            flex: 1;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill__progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+            border-radius: 2px;
+            transition: width 1s var(--ease-out);
+            width: 0;
+        }
+
+        .skill__progress.animate {
+            width: var(--progress);
+        }
+
+        /* Mobile Navigation */
+        .nav__toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .nav__toggle-line {
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .nav__toggle.active .nav__toggle-line:nth-child(1) {
+            transform: rotate(45deg) translateY(8px);
+        }
+
+        .nav__toggle.active .nav__toggle-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav__toggle.active .nav__toggle-line:nth-child(3) {
+            transform: rotate(-45deg) translateY(-8px);
+        }
+
+        @media (max-width: 768px) {
+            .nav__toggle {
+                display: flex;
+            }
+
+            .nav__links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--bg);
+                border-left: 1px solid var(--border);
+                flex-direction: column;
+                padding: var(--space-xl) var(--space-md);
+                gap: var(--space-md);
+                transition: right 0.4s var(--ease-out);
+                z-index: 1000;
+            }
+
+            .nav__links.active {
+                right: 0;
+            }
+
+            .nav__link {
+                font-size: 1.5rem;
+                color: var(--text-primary);
+                padding: var(--space-sm) 0;
+            }
+
+            .nav__link::after {
+                background: var(--accent);
+            }
+        }
+
         /* Responsive Adjustments */
         @media (min-width: 768px) {
             .hero__content {
@@ -790,7 +1009,12 @@
     <!-- Navigation -->
     <nav class="nav" aria-label="Main navigation">
         <a href="#" class="nav__logo">Ticuv</a>
-        <ul class="nav__links">
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+            <span class="nav__toggle-line"></span>
+            <span class="nav__toggle-line"></span>
+            <span class="nav__toggle-line"></span>
+        </button>
+        <ul class="nav__links" id="navLinks">
             <li><a href="#work" class="nav__link">Work</a></li>
             <li><a href="#about" class="nav__link">About</a></li>
             <li><a href="#contact" class="nav__link">Contact</a></li>
@@ -812,8 +1036,8 @@
                             Multidisciplinary designer specializing in 3D art, generative design,
                             and brand identities. Balancing discipline with creative freedom.
                         </p>
-                        <a href="#work" class="hero__cta">
-                            View Work
+                        <a href="#contact" class="hero__cta">
+                            Let's Collaborate
                             <span class="hero__cta-arrow" aria-hidden="true">→</span>
                         </a>
                     </div>
@@ -839,6 +1063,10 @@
                         data-description="A comprehensive brand system exploring the intersection of geometric precision and organic movement. Using procedural generation, we created a living identity that adapts while maintaining its core essence."
                         data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=800&fit=crop">
                         <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=800&fit=crop" alt="Meridian Brand System" class="work__item-image">
+                        <div class="work__item-meta">
+                            <span class="work__item-featured">Featured</span>
+                            <span class="work__item-year">2024</span>
+                        </div>
                         <div class="work__item-overlay"></div>
                         <div class="work__item-content">
                             <h3 class="work__item-title">Meridian</h3>
@@ -852,6 +1080,9 @@
                         data-description="An immersive digital platform combining real-time 3D rendering with fluid interactions. The project showcases product architecture through dynamic camera movements and particle-based transitions."
                         data-image="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1200&h=800&fit=crop">
                         <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1200&h=800&fit=crop" alt="Vessel Digital Platform" class="work__item-image">
+                        <div class="work__item-meta">
+                            <span class="work__item-year">2024</span>
+                        </div>
                         <div class="work__item-overlay"></div>
                         <div class="work__item-content">
                             <h3 class="work__item-title">Vessel</h3>
@@ -865,6 +1096,9 @@
                         data-description="Architectural visualization meets generative design. We developed custom algorithms to create unique spatial compositions that reflect the studio's modernist philosophy and computational approach."
                         data-image="https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1200&h=800&fit=crop">
                         <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1200&h=800&fit=crop" alt="Forma Architecture" class="work__item-image">
+                        <div class="work__item-meta">
+                            <span class="work__item-year">2023</span>
+                        </div>
                         <div class="work__item-overlay"></div>
                         <div class="work__item-content">
                             <h3 class="work__item-title">Forma</h3>
@@ -878,6 +1112,9 @@
                         data-description="Editorial design reimagined through the lens of light and shadow. This project combines traditional typography with 3D rendered elements, creating a bridge between print and digital mediums."
                         data-image="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop">
                         <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop" alt="Lumière Editorial" class="work__item-image">
+                        <div class="work__item-meta">
+                            <span class="work__item-year">2023</span>
+                        </div>
                         <div class="work__item-overlay"></div>
                         <div class="work__item-content">
                             <h3 class="work__item-title">Lumière</h3>
@@ -894,6 +1131,11 @@
             <div class="container">
                 <div class="about__content">
                     <div class="about__text fade-in">
+                        <div class="about__profile">
+                            <div class="about__profile-placeholder">T</div>
+                            <!-- To add your photo, replace the placeholder with: -->
+                            <!-- <img src="path/to/your/photo.jpg" alt="Ticu Vlad" class="about__profile-image"> -->
+                        </div>
                         <p class="about__lead">
                             Multidisciplinary designer creating <em>impactful visuals</em>.
                         </p>
@@ -946,26 +1188,106 @@
             </div>
         </section>
 
+        <!-- Skills Section -->
+        <section class="skills" id="skills">
+            <div class="container">
+                <header class="section__header fade-in">
+                    <h2 class="section__title">Tools & Skills</h2>
+                </header>
+                <div class="skills__grid fade-in">
+                    <div class="skills__category">
+                        <h3 class="skills__title">3D & Motion</h3>
+                        <div class="skills__list">
+                            <div class="skill">
+                                <span class="skill__name">Blender</span>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" style="--progress: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">Cinema 4D</span>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" style="--progress: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">After Effects</span>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" style="--progress: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills__category">
+                        <h3 class="skills__title">Design</h3>
+                        <div class="skills__list">
+                            <div class="skill">
+                                <span class="skill__name">Photoshop</span>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" style="--progress: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">Illustrator</span>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" style="--progress: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">Figma</span>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" style="--progress: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills__category">
+                        <h3 class="skills__title">Code & Generative</h3>
+                        <div class="skills__list">
+                            <div class="skill">
+                                <span class="skill__name">Processing</span>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" style="--progress: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">TouchDesigner</span>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" style="--progress: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill__name">p5.js</span>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" style="--progress: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer / Contact -->
         <footer class="footer" id="contact">
             <div class="container">
                 <div class="footer__content">
                     <div class="footer__cta">
-                        <p>Let's create something<br>meaningful together.</p>
+                        <p>Have a project in mind?<br>Let's bring it to life.</p>
                         <p style="margin-top: var(--space-md);">
-                            <a href="mailto:hello@ticuv.studio">hello@ticuv.studio</a>
+                            <a href="mailto:contact@ticuv.design">contact@ticuv.design</a>
                         </p>
                     </div>
                 </div>
                 <div class="footer__bottom">
                     <nav class="footer__links" aria-label="Social links">
-                        <a href="#" class="footer__link" aria-label="Instagram">Instagram</a>
-                        <a href="#" class="footer__link" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" class="footer__link" aria-label="Dribbble">Dribbble</a>
-                        <a href="#" class="footer__link" aria-label="Twitter">Twitter</a>
+                        <a href="https://instagram.com/ticuv" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="Instagram">Instagram</a>
+                        <a href="https://linkedin.com/in/ticuv" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="https://dribbble.com/ticuv" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="Dribbble">Dribbble</a>
+                        <a href="https://behance.net/ticuv" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="Behance">Behance</a>
                     </nav>
                     <p class="footer__copyright">
-                        © 2025 Ticuv Studio. All rights reserved.
+                        © 2025 Ticu Vlad. Crafted with passion in Iași, Romania.
                     </p>
                 </div>
             </div>
@@ -1104,6 +1426,52 @@
         const statsContainer = document.querySelector('.about__stats');
         if (statsContainer) {
             statsObserver.observe(statsContainer);
+        }
+
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav__link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+
+        // Animate skill bars on scroll
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill__progress');
+                    progressBars.forEach((bar, index) => {
+                        setTimeout(() => {
+                            bar.classList.add('animate');
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const skillsSection = document.querySelector('.skills');
+        if (skillsSection) {
+            skillsObserver.observe(skillsSection);
         }
     </script>
 </body>
